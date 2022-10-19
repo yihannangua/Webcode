@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+     <script src="./js/jquery.js"></script>
+    <title>评论列表</title>
+</head>
+<body style="padding: 10px;">
+    <!-- 评论面板 -->
+    
+    <div class="panel panel-primary">
+          <div class="panel-heading">
+                <h3 class="panel-title">发表评论</h3>
+          </div>
+          <form class="panel-body" id="form1">
+            <div style="margin-left: 10px;">评论人：</div>
+            <input style="margin: 5px 0;" type="text" class="form-control" id="username" name="username" placeholder="请输入姓名">
+            <div style="margin-left: 10px;">评论内容：</div>
+            <textarea  style="margin: 5px 0;" class="form-control" id="content" name="content"  placeholder="请输入评论内容"></textarea>
+            <button style="margin: 5px 0;" type="submit" class="btn btn-primary">发表评论</button>
+          </form>
+    </div>
+
+    <!-- 评论列表 -->    
+    <ul class="list-group"  id="row">    
+    </ul>
+    
+    <script src="./js/ajax.js"></script>
+
+</body>
+</html>
