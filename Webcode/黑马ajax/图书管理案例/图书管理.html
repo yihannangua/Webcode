@@ -1,0 +1,68 @@
+<!DOCTYPE HTML5>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>图书管理</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="css/图书管理.css">
+    </head>
+    <body>
+        <!-- 添加图书 -->
+        
+        <div class="panel panel-primary">
+              <div class="panel-heading">
+                    <h3 class="panel-title">添加新图书</h3>
+              </div> 
+              <div class="panel-body form-inline">
+                    <div class="input-group">
+                        <div class="input-group-addon">书名</div>
+                        <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">作者</div>
+                        <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">出版社</div>
+                        <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+                    </div>
+                    <button id="btnAddBook" class="btn btn-primary">添加</button>
+              </div>
+        </div>
+
+        <!-- 图书表单 -->
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>书名</th>
+                    <th>作者</th>
+                    <th>出版社</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            
+            <tbody id="td">
+               
+            </tbody>
+        </table>
+
+        <!-- jQuery -->
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/图书管理.js"></script>
+    </body>
+</html>
