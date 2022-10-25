@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "art-template": "^4.13.2",
-    "express": "^4.8.1",
+    "express": "^4.17.1",
     "jquery": "^3.6.1",
     "moment": "^2.29.4"
   }
