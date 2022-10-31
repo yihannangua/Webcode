@@ -2,6 +2,8 @@ const express = require('express');
 
 const app = express();
 
+const path = require('path');
+
 //配置Session中间件
 const session = require('express-session');
 
@@ -13,7 +15,7 @@ app.use(
 })
 )
 
-app.use(express.static('/pages'))
+app.use(express.static(path.join(__dirname,'/pages')));
 
 app.use(express.urlencoded({extended: false}));
 
@@ -57,5 +59,5 @@ app.post('/api/logout',(req,res) => {
 })
 
 app.listen(80,(req,res) => {
-    console.log('服务启动了，http://127.0.0.1');
+    console.log('服务启动了，http://127.0.0.1:80');
 })
