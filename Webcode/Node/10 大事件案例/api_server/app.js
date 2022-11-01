@@ -3,6 +3,8 @@ const express = require('express');
 // 创建 express 的服务器实例
 const app = express();
 
+const joi = require('joi');
+
 //导入cors中间件
 const cors = require('cors');
 //将cors注册为全局中间件
@@ -25,7 +27,15 @@ app.use(function (req,res,next) {
 
 //导入并使用用户路由模块
 const userRouter = require('./router/user');
+const { use } = require('./router/user');
+const Joi = require('joi');
 app.use('/api',userRouter);
+
+//定义错误界别的中间件
+app.use((err,req,res,next) => {
+    if (Joi.ValidationError) return res.cc(err);
+    res.cc(err);
+})
 
 //监听服务器启动事件
 app.listen(3007,(req,res) => {
