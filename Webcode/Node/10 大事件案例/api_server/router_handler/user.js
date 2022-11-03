@@ -4,12 +4,10 @@ const db = require('../db/index');
 //导入bcyptjs
 const bcypt = require('bcryptjs');
 
-function resErr(errMsg) {
-    res.send({
-        status: 1,
-        msg:errMsg
-    })
-}
+//导入生成 token 的包
+const jwt = require('jsonwebtoken');
+//导入全局配置文件
+const config = require('../config')
 
 //注册新用户的处理函数
 exports.regUser = (req,res) => {
@@ -52,5 +50,65 @@ exports.regUser = (req,res) => {
 
 //登录的处理函数
 exports.login = (req,res) => {
-    res.send('login ok');
+    const userinfo = req.body;
+
+    const sqlLogin = 'select * from ev_users where username=?';
+
+    db.query(sqlLogin,userinfo.username,(err,result) => {
+        //执行 sql 失败
+        if (err) return res.cc(err);
+        //执行 sql 成功，但是结果条数不等于 1
+        if (result.length !== 1) return res.cc('登录失败');
+        //登录密码是否正确
+        const compareResult = bcypt.compareSync(userinfo.password,result[0].password);
+        if (!compareResult) res.send('登录失败！');
+        //在服务器端生成 Token 字符串
+        const user = {...result[0]
+            ,password: '',user_pic: ''};
+        //对用户的信息进行加密，生成 Token 字符串
+        const tokenStr = jwt.sign(user,config.jwtsecretKey,{ expiresIn: config.expiresIn});
+        //调用 res.send 将 Token 响应给客户端
+        res.send({
+            status: 0,
+            msg: '登录成功',
+            token: 'bearer ' + tokenStr,//添加固定前缀 bearar
+        })
+    })
+}
+
+//获取用户信息的函数
+exports.userInfo = (req,res) => {
+    const sql = 'select id,username,nickname,email,user_pic from ev_users where id=?';
+
+    db.query(sql,req.user.id,(err,result) => {
+        //执行 sql 失败
+        if (err) return res.cc(err);
+        //执行 sql 成功，但是结果条数不等于 1
+        if (result.length !== 1) return res.cc('查询数据错误！');
+        //查询成功
+        res.send({
+            status: 0,
+            msg: '获取用户基本信息成功！',
+            data: result[0],
+    
+        })
+    })
+}
+
+//更新用户信息的函数
+exports.updateUserInfo = (req,res) => {
+    console.log(req.body);
+    const sql = 'update ev_users set ? where id=?';
+    db.query(sql,[req.body,req.body.id],(err,result) =>{
+        //执行 sql 失败
+        if (err) return res.cc(err);
+        //执行 sql 成功，但是结果条数不等于 1
+        if (result.length !== 1) return res.cc('查询数据错误！');
+        //更新成功
+        res.send({
+            status: 0,
+            msg: '更新用户信息成功！'
+        })
+    })
+    
 }

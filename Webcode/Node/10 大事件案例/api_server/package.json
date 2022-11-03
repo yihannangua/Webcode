@@ -17,7 +17,9 @@
     "express": "^4.17.1",
     "express-joi": "^0.3.1",
     "express-joi-validate": "^3.0.1",
+    "express-jwt": "^5.3.3",
     "joi": "^17.6.4",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1"
   }
 }

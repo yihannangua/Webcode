@@ -12,3 +12,17 @@ exports.reg_login_schema = {
         password,
     },
 }
+
+// 定义 id, nickname, emial 的验证规则
+const id = joi.number().integer().min(1).required();
+const nickname = joi.string().required();
+const email = joi.string().email().required();
+
+//定义验证更新用户西门信息表单数据的规则对象
+exports.update_userinfo_schema = {
+    body: {
+        id,
+        nickname,
+        email,
+    },
+}
