@@ -103,7 +103,7 @@ exports.updateUserInfo = (req,res) => {
         //执行 sql 失败
         if (err) return res.cc(err);
         //执行 sql 成功，但是结果条数不等于 1
-        if (result.length !== 1) return res.cc('查询数据错误！');
+        if (result.affectedRows !== 1) return res.cc('更新用户信息失败！');
         //更新成功
         res.send({
             status: 0,
