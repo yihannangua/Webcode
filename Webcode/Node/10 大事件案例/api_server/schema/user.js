@@ -18,11 +18,22 @@ const id = joi.number().integer().min(1).required();
 const nickname = joi.string().required();
 const email = joi.string().email().required();
 
-//定义验证更新用户西门信息表单数据的规则对象
+//定义验证更新用户信息表单数据的规则对象
 exports.update_userinfo_schema = {
     body: {
         id,
         nickname,
         email,
+    },
+}
+
+// dataUri() 指的是如下格式的字符串数据：
+// data:image/png;base64,VE9PTUFOWVNFQ1JFVFM=
+const user_pic = joi.string().dataUri().required();
+
+//定义验证更新用户头像信息表单数据的规则对象
+exports.update_avatar_schema = {
+    body: {
+        user_pic,
     },
 }
