@@ -57,7 +57,7 @@ exports.login = (req,res) => {
         if (result.length !== 1) return res.cc('登录失败');
         //登录密码是否正确
         const compareResult = bcypt.compareSync(userinfo.password,result[0].password);
-        if (!compareResult) return res.send('登录失败！');
+        if (!compareResult) res.send('登录失败！');
         //在服务器端生成 Token 字符串
         const user = {...result[0],password: '',user_pic: ''};
         //对用户的信息进行加密，生成 Token 字符串
@@ -108,6 +108,28 @@ exports.updateUserInfo = (req,res) => {
     })
     
 }
+
+
+//更新用户头像的函数
+exports.updateAvatar = (req,res) => {
+    console.log(req.body);
+    console.log(req.user.id);
+    
+    const sql = 'update ev_users set user_pic=? where id=?';
+
+    db.query(sql,[req.body.user_pic,req.user.id],(err,result) =>{
+        //执行 sql 失败
+        if (err) return res.cc(err);
+        //执行 sql 成功，但是结果条数不等于 1
+        if (result.affectedRows !== 1) return res.cc('更新用户头像失败！');
+        //更新成功
+        res.send({
+            status: 0,
+            msg: '更新用户信息成功！'
+        })
+    })
+}
+
 
 //重置用户密码的函数
 exports.updatePwd = (req,res) => {
