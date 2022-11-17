@@ -121,7 +121,7 @@ exports.updateAvatar = (req,res) => {
     
     const sql = 'update ev_users set user_pic=? where id=?';
 
-    db.query(sql,[req.body.user_pic,req.user.id],(err,result) =>{
+    db.query(sql,[req.body.avatar,req.user.id],(err,result) =>{
         //执行 sql 失败
         if (err) return res.cc(err);
         //执行 sql 成功，但是结果条数不等于 1
