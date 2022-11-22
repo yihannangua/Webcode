@@ -1,0 +1,47 @@
+12 Symbol创建对象属性和方法.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //向对象中添加方法 up down
+        let game = {
+
+        }
+
+        //声明一个对象
+        let methods = {
+            up: Symbol('up'),
+            down: Symbol('down'),
+        }
+
+        game[methods.up] = function() {
+            console.log('我可以改变形状');
+        } 
+
+        game[methods.down] = function () {
+            console.log('我可以快速下降');
+        }
+
+        console.log(game);
+
+        //另一种方式
+        let youxi = {
+            name: '狼人杀',
+            [Symbol('see')]: function() {
+                console.log('我可以查看谁是杀手');
+            },
+            [Symbol('kill')]: function() {
+                console.log('我可以杀人');
+            }
+        }
+
+        console.log(youxi);
+    </script>
+</body>
+</html>

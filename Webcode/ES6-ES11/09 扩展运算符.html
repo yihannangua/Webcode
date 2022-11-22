@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //能将数组转换为逗号分隔的参数序列
+        const tfboys = ['王源','易烊千玺','王俊凯'];
+
+        function chunwan() {
+            console.log(arguments);
+        }
+
+        chunwan(...tfboys);//chunwan('王源','易烊千玺','王俊凯')
+
+    </script>
+</body>
+</html>
