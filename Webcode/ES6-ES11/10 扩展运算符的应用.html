@@ -1,0 +1,39 @@
+10 扩展运算符的应用.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        //1.数组的合并
+        const kuaizi = ['王太利','肖阳'];
+        const fenghuang = ['曾毅','玲花'];
+
+        //ES5做法
+        // const zuixuanxiaopingguo = kuaizi.concat(fenghuang);
+        //扩展运算符做法
+        const zuixuanxiaopingguo = [...kuaizi,...fenghuang];
+        console.log(zuixuanxiaopingguo);
+
+        //2.数组的克隆
+        const szh = ['E','G','M'];
+        const syc = [...szh];
+        console.log(syc);
+
+        //3.将伪数组转为真数组
+        const divs = document.querySelectorAll('div');
+        console.log(divs);
+        const arr = [...divs];
+        console.log(arr);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //数组的解构
+        let F4 = ['小沈阳','刘能','赵四','宋小宝'];
+
+        const [x,l,z,s] = F4;
+        console.log(x);
+        console.log(l);
+        console.log(z);
+        console.log(s);
+
+        //对象的解构
+        let zhao = {
+            name: '赵本山',
+            age: 54,
+            skill: function() {
+                console.log('我可以演小品');
+            }
+        }
+
+        const {name,age,skill} = zhao;
+        console.log(name);
+        console.log(age);
+        console.log(skill);
+        skill();
+
+        let {skill} = zhao;
+        console.log(skill);
+        skill();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

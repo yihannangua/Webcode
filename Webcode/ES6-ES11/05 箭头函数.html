@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let fn = (a,b) => {
+            return a + b;
+        }
+
+        let result = fn(1,2);
+        console.log(result);
+
+        //1.this是静态的
+        function getName1() {
+            console.log(this.name);
+        }
+
+        let getName2 = () => {
+            console.log(this.name);
+        }
+
+        //设置window对象的name属性
+        window.name = '尚硅谷';
+        const shool = {
+            name: 'sgg',
+        }
+
+        //直接调用
+        getName1();
+        getName2();
+
+        //call方法调用
+        getName1.call(shool);
+        getName2.call(shool);
+
+        //2.不能作为构造函数
+        // let Person = (name,age) => {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+
+        // let me = new Person('xiao',12);
+        // console.log(me);
+
+        //3.不能使用arguments变量
+        // let fn2= () => {
+        //     console.log(arguments);
+        // };
+
+        // fn2(1,2,3);
+
+        //4、箭头函数的简写
+        //a.省略小括号，当形参有且只有一个的时候
+        let add = n => {
+            return n + n;
+        }
+        console.log(add(9));
+        //b.省略花括号，当代码体只有一条语句的时候
+        let pow =  m => m*m;
+
+        console.log(pow(8));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
