@@ -15,16 +15,24 @@
         }
 
         //声明一个对象
-        let methods = {
-            up: Symbol('up'),
-            down: Symbol('down'),
-        }
+        // let methods = {
+        //     up: Symbol('up'),
+        //     down: Symbol('down'),
+        // }
 
-        game[methods.up] = function() {
+        // game[methods.up] = function() {
+        //     console.log('我可以改变形状');
+        // } 
+
+        game[Symbol('up')] = function() {
             console.log('我可以改变形状');
         } 
 
-        game[methods.down] = function () {
+        // game[methods.down] = function () {
+        //     console.log('我可以快速下降');
+        // }
+
+        game[Symbol('down')] = function () {
             console.log('我可以快速下降');
         }
 

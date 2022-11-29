@@ -1,0 +1,28 @@
+01 创建类和对象.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.创建类 class 创建一个明星类
+        class Star {
+            constructor(uname,age) {//类里面的函数 不需要写function
+                this.uanme = uname;
+                this.age = age;
+            }
+        }
+
+        //2.利用类创建对象 new
+        var ldh = new Star('刘德华',23);
+        var lcw = new Star('梁朝伟',24);
+        console.log(ldh.uanme + '今年' + ldh.age + '岁了');
+        console.log(lcw.uanme + '今年' + lcw.age + '岁了');
+
+    </script>
+</body>
+</html>
