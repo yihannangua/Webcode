@@ -1,0 +1,31 @@
+14 call方法.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call方法
+        function fn(x,y) {
+            console.log('我想和手磨咖啡');
+            console.log(this);
+            console.log(x + y);
+        }
+        //默认调用方法
+        fn();
+        //call方法调用
+        fn.call();
+
+        var o = {
+            name: 'andy',
+        };
+
+        //call可以改变函数的this指向,同时还可以传递参数
+        fn.call(o,2,5);
+    </script>
+</body>
+</html>

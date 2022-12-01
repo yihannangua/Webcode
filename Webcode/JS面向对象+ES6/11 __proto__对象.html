@@ -1,0 +1,31 @@
+11 __proto__对象.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname,age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        Star.prototype.sing = function() {
+            console.log('我会唱歌');
+        }
+        var ldh = new Star('刘德华',23);
+        var zxy = new Star('张学友',43);
+
+        console.log(ldh);//实例对象身上系统自己添加了一个__proto__,指向构造函数的原型对象 prototype
+
+        console.log(ldh.__proto__);
+        console.log(ldh.__proto__ === Star.prototype);//等价
+        console.log(ldh.__proto__.constructor);
+        console.log(Star.prototype.constructor);
+
+    </script>
+</body>
+</html>

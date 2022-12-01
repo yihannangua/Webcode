@@ -1,0 +1,44 @@
+12 constructor构造函数.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Star(uname,age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        // Star.prototype.sing = function() {
+        //     console.log('我会唱歌');
+        // }
+        // Star.prototype.dance = function() {
+        //     console.log('我会跳舞');
+        // }
+        
+        Star.prototype = {
+            constructor: Star,//对象会覆盖构造函数的constructor属性，需要手动指向
+            sing: function() {
+                console.log('我会唱歌');
+            },
+            dance: function() {
+                console.log('我会跳舞');
+            },
+        }
+        
+        var ldh = new Star('刘德华',23);
+
+        console.log(Star.prototype);
+        console.log(ldh.__proto__);
+        console.log(Star.prototype.constructor);
+        console.log(ldh.__proto__.constructor);
+
+
+
+    </script>
+</body>
+</html>
