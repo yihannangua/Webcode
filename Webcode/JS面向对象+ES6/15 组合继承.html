@@ -9,7 +9,19 @@
 </head>
 <body>
     <script>
-        
+        //借用父构造函数继承属性
+        //1.父构造函数
+        function Father(uname,age) {
+            this.uname = uname;
+            this.age = age;
+        }
+
+        //子构造函数
+        function Sun(uname,age) {
+            Father.call(this,uname,age);
+        }
+
+
     </script>
 </body>
 </html>
