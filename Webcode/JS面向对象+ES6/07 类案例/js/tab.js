@@ -11,10 +11,11 @@ class Tab {
     }
     init() {
         //init初始化操作让相关的元素绑定事件
-        this.updateNode();//重新获取元素
+        this.updateNode();//调用获取元素的方法，重新获取元素
         for(var i = 0;i < this.lis.length;i++) {
             this.lis[i].index = i;
             this.lis[i].onclick = this.toggleTab;
+            this.lis[i].lastElementChild.onclick = this.removeTab;
         }
         this.tabadd.onclick =  this.addTab;
     }
@@ -38,8 +39,16 @@ class Tab {
         that.init();//再次执行初始化，保证新添加的元素被获取并绑定事件
     }
     //3.移除功能
-    removeTab() {
-
+    removeTab(e) {
+        e.stopPropagation( );//阻止冒泡
+        var theOne = this.parentElement;
+        theOne.remove();//方法的this指向方法的调用者 点击的删除按钮
+        that.sections[theOne.index].remove();//删除对应序号的内容
+        that.updateNode();
+        if (theOne.className) {//如果删除的是选中的，则将其前一个li和section设为选中及可见
+            that.lis[theOne.index - 1].className = 'liactive';
+            that.sections[theOne.index -1].className = 'conactive';
+        }
     }
     //4.编辑功能
     editTab() {

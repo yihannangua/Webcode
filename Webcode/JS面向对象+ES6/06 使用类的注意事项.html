@@ -13,12 +13,12 @@
         var _that;
         class Star {
             constructor(uname,age) {
-                //constructor 里面的 tihs 指向的是 创建的实例
+                //constructor 里面的 this 指向的是 创建的实例
                 // console.log(this);
                 that = this;
                 this.uname = uname;
-                this,age = age;
-                this.sing();
+                this.age = age;
+                // this.sing();
                 this.btn = document.querySelector('button');
                 this.btn.onclick = this.sing;
             }
@@ -26,7 +26,7 @@
                 //这个方法的 this 指向的是 btn，因为是btn调用了这个函数
                 // console.log(this);
                 // console.log(this.uname);
-                console.log(that.uname);
+                console.log(that.uname);//that里面存储的是constructor里面的this
             }
             dance() {
                 //方法里的 this 指向的是 调用方法的实例
@@ -35,12 +35,12 @@
             }
         }
 
-        var ldh = new Star('刘德华',23);
-        var lcw = new Star('张学友',22);
-        console.log(that === lcw);
+        // var ldh = new Star('刘德华',23);
+        var zxy = new Star('张学友',22);
+        console.log(that === zxy);
         console.log(that);
-        lcw.dance();
-        console.log(_that === lcw);
+        zxy.dance();
+        console.log(_that === zxy);
     </script>
 </body>
 </html>

@@ -17,10 +17,13 @@
         }
 
         //子构造函数
-        function Sun(uname,age) {
-            Father.call(this,uname,age);
+        function Sun(uname,age,score) {
+            Father.call(this,uname,age);//让父构造函数的this，指向子构造函数的this，子构造函数就可以使用父构造函数
+            this.score = score;
         }
 
+        var son = new Sun('刘德华',18,100);
+        console.log(son);
         
 
     </script>
