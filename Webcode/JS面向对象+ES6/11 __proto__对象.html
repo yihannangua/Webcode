@@ -25,7 +25,7 @@
         console.log(ldh.__proto__ === Star.prototype);//等价
         console.log(ldh.__proto__.constructor);
         console.log(Star.prototype.constructor);
-
+        //先看实例对象身上是否有方法，就有执行。没有，因为有__proto__，就去构造函数原型对象身上查找
     </script>
 </body>
 </html>
