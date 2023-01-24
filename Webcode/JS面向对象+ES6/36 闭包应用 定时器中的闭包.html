@@ -1,0 +1,29 @@
+36 闭包应用 定时器中的闭包.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="nav">
+        <li>榴莲</li>
+        <li>臭豆腐</li>
+        <li>鲱鱼罐头</li>
+        <li>奶酪</li>
+    </ul>
+    <script>
+        //闭包应用 3秒之后，打印所有li元素的内容
+        var lis = document.querySelectorAll('li');
+        for(var i = 0;i < lis.length;i++) {
+            (function(i){
+                setTimeout(function(){
+                console.log(lis[i].innerText);
+            },2000)
+            })(i)
+        }
+</script>
+</body>
+</html>

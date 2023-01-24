@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //借用父构造函数继承属性
+    //父构造函数
+    function Father(uname,age) {
+        this.uname = uname;
+        this.age = age;
+    }
+    Father.prototype.money = function () {
+        console.log(10000);
+    }
+
+    //子构造函数
+    //子构造函数
+    function Son(uname,age,score) {
+        Father.call(this,uname,age);//让父构造函数的this，指向子构造函数的this，子构造函数就可以使用父构造函数
+        this.score = score;
+    }
+    // Son.prototype = Father.prototype; //子原型对象指向父原型对象，再次修改子原型对象，会修改父原型对象
+    Son.prototype = new Father();//实例化一个父构造函数，并将子构造函数的原型对象指向他，这样再次修改子构造函数的原型对象，就不会修改父构造函数
+    //如果利用对象的形式修改了原型对象，别忘了利用constructor 指回原来的构造函数
+    Son.prototype.constructor = Son;
+    //这个是子构造函数专门的方法
+    Son.prototype.exam = function() {
+        console.log('我要考试');
+    }
+
+    var son = new Son('刘德华',18);
+    console.log(son);
+    console.log(Father.prototype);
+    console.log(Father.prototype.constructor);
+</script>
+</body>
+</html>

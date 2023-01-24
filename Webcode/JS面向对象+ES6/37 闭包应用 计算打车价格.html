@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    请输入公里数：
+    <input type="text" id="distance"><br>
+    <input type="checkbox" name="" id="block">是否拥堵<br>
+    <button id="sumbit">计算</button>
+    <script>
+        //闭包应用 计算打车价格
+        //打车 起步价13（3公里内），之后每多一公里加5块钱，用户输入公里数就可以计算打车价格
+        //如果有拥堵，总价格多收取10块钱
+
+        function car(dis,b) {//根据距离及拥堵计算价格
+            dis = distance.value;
+            b = block.checked;
+            
+            var price = 0;
+            if(dis <= 3) {
+                    price = price +13;
+                } else {
+                    price = 13 + 5 * (dis - 3);
+                };   
+            price = b ? price + 10 : price; 
+            console.log('您的打车费用预计为：' + price + ' 元');
+            return price;
+            
+        };
+        var dis = document.querySelector('#distance').value;
+        var b = document.querySelector('#block').checked;
+        var btn = document.querySelector('#sumbit');
+        // btn.addEventListener('click',car);
+        btn.onclick = car;
+        
+    </script>
+</body>
+</html>

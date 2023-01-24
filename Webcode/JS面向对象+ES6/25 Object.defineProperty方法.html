@@ -1,0 +1,64 @@
+25 Object.defineProperty方法.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            id:1,
+            name:'小米',
+            price:1999
+        }
+        //以前修改和添加属性的方法
+        // obj.num = 3;
+        // console.log(obj);
+
+        //Object.defineProperty()定义新属性或修改属性
+        Object.defineProperty(obj,'num',{
+            value:300
+        });
+        console.log(obj);
+
+        Object.defineProperty(obj,'price',{
+            value:3000
+        });
+        console.log(obj);
+
+        Object.defineProperty(obj,'id',{
+            writable:false,//不允许修改属性
+        });
+        obj.id = 2;
+        console.log(obj);
+
+        Object.defineProperty(obj,'address',{
+            value:'中国兰溪',
+            writable:false,
+            Enumerator:false,
+            configurable:false//不允许修改第三个参数里面的特性
+        });
+
+        console.log(obj);
+        console.log(Object.keys(obj));
+        // delete obj.address;
+        delete obj.name;
+        obj.address = '美国';
+        
+
+        console.log(obj);
+        Object.defineProperty(obj,'address',{
+            value:'中国兰溪',
+            writable:false,
+            Enumerator:false,
+            configurable:true
+        });
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+31 严格模式中的变化.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        //1 变量名必须先声明再使用
+        // num = 10;
+        // console.log(num);
+        var num = 10;
+        console.log(num);
+        //2 不能删除已经声明的变量
+        // delete num;
+        
+        //3 严格模式下 全局函数中的this是 undefined
+        function f1() {
+            console.log(this);
+        }
+        f1();
+        //4 严格模式下，构造函数不加new调用，this会报错
+        function Star() {
+            this.sex = '男';
+        }
+        // Star();
+        // console.log(window.sex);
+        //new 实例化的构造函数，this指向创建的实例对象
+        var ldh = new Star();
+        //5 定时器里的this指向的还是window
+        console.log(ldh.sex);
+
+        setTimeout(function() {
+            console.log(this);
+        },2000);
+
+        //6 事件、对象还是指向调用者
+
+
+        //7 函数不能有重名的参数
+        // function f3(a,a) {
+        //     console.log(a + a);
+        // }
+        // f3(1,2);
+
+        //8  函数必须声明在顶层,不允许在非函数代码块声明函数 如 if for while等
+        
+
+    </script>
+</body>
+</html>

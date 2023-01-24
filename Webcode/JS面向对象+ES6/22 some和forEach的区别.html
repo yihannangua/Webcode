@@ -1,0 +1,42 @@
+22 some和forEach的区别.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = ['red','green','blue','pink'];
+        //forEach 遍历
+        arr.forEach(function(value) {
+            if (value == 'green') {
+                console.log('找到了该元素');
+                return true;//forEach里面的return 不会终止迭代
+            }
+            console.log('11');
+        })
+        
+        // some 遍历
+        arr.some(function(value) {
+            if (value == 'green') {
+                console.log('找到了该元素');
+                return true;//some里面的return 就会终止遍历 效率更高
+            }
+            console.log('11');
+        })
+        
+        arr.filter(function(value) {
+            if (value == 'green') {
+                console.log('找到了该元素');
+                return true;//filter里面的return 不会终止迭代
+            }
+            }
+            console.log('11');
+        })
+    </script>
+    
+</body>
+</html>
