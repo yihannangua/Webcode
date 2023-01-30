@@ -1,0 +1,27 @@
+40 利用递归求斐波那契数列.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //利用递归求斐波那契数列（兔子序列） 1、1、2、3、5、8、13、21
+        //用户输入一个数字n，求出这个数字对应的兔子序列值
+        function f1(n) {
+            if(n <= 2) {
+                return 1;
+            }
+            else {
+                return f1(n - 1) + f1 (n - 2); 
+            }
+        }
+
+        var s = f1(13);
+        console.log(s);
+    </script>
+</body>
+</html>

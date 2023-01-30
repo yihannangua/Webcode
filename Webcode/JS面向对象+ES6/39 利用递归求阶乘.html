@@ -1,0 +1,26 @@
+39 利用递归求阶乘.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //利用递归求1~n的阶乘 1*2*3* … *n 
+        function f1(n) {
+            if(n == 1) {
+                return 1;
+            }    
+            return n * f1(n - 1);                  
+        }
+        console.log(f1(3))
+        //详细思路 f1（3）
+        //3 = 1,return 3 * f1(2);
+        //2 != 1,return 3 * 2 * f1(1)
+        //1 = 1,return 3 * 2 * 1 = 6
+    </script>
+</body>
+</html>
