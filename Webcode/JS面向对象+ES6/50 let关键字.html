@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //let关键字用来声明变量
+        //let关键字声明的变量 具有块级作用域
+        
+
+        // if(true) {
+        //     let b = 20;
+        //     console.log(b);
+        //     if (true) {
+        //         let c = 30;
+        //         console.log(b);
+        //     }
+        //     console.log(c);
+        // }
+        // console.log(b);
+
+
+        //使用let关键字声明的变量才具有块级作用域 使用var不具备这个特点
+        // if (true) {
+        //     let a = 20;
+        //     var b = 30;
+        // }
+        // console.log(b);
+        // console.log(a);
+
+        //let 可以防止循环变量变成全局变量
+        // for (var i = 0; i < 2; i++) {
+        // }
+        // console.log(i);
+        // for (let x = 0; x < 2; x++) {
+        // }
+        // console.log(x);
+
+        //let 不存在变量提升
+        // console.log(c);
+        // let c = 12;
+
+        //let 声明的变量具有有暂时性死区特性
+        var num = 10;
+        if (true) {
+            console.log(num);//会报未声明的错误，在块级作用域中使用let，相同的变量不会和外部产生关系
+            let num = 20;
+        }
+
+    </script>
+</body>
+</html>

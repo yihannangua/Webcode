@@ -1,0 +1,34 @@
+44 边界符.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //边界符 ^ $
+        var rg1 = /abc/;//正则表达式里不需要加引号
+        // /abc/ 只要包含abc的都符合
+        console.log(rg1.test('abc'));
+        console.log(rg1.test('abcd'));
+        console.log(rg1.test('baababc'));
+
+        console.log('_________________________________________');
+        var rg2 = /^abc/;
+        // /^abc/ 必须以abc为开头
+        console.log(rg2.test('abc'));
+        console.log(rg2.test('abcd'));
+        console.log(rg2.test('baababc'));
+
+        console.log('_________________________________________');
+        var rg3 = /^abc$/;//精确匹配abc
+        console.log(rg3.test('abc'));
+        console.log(rg3.test('abcd'));
+        console.log(rg3.test('baababc'));
+
+    </script>
+</body>
+</html>

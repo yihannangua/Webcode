@@ -1,0 +1,62 @@
+46 量词.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //量词符，用来设定某个模式出现的次数
+        var reg = /^a$/;
+
+        // * 相当于 >=0 可以出现0次或很多次
+        var rg1 = /^a*$/;
+        console.log(rg1.test(''));
+        console.log(rg1.test('a'));
+        console.log(rg1.test('aaa'));
+        
+        // + 相当于 >=1 可以出现1次或很多次
+        var rg2 = /^a+$/;
+        console.log(rg2.test(''));
+        console.log(rg2.test('a'));
+        console.log(rg2.test('aaa'));
+        
+        
+        // ? 相当于 1 || 0
+        var rg3 = /^a?$/;
+        console.log(rg3.test(''));
+        console.log(rg3.test('a'));
+        console.log(rg3.test('aaa'));
+        
+        // {3 } 相当于重复3次
+        var rg4= /^a{3}$/;
+        console.log(rg4.test(''));
+        console.log(rg4.test('a'));
+        console.log(rg4.test('aaa'));
+        
+        
+        // {3, } 大等于3次
+        var rg5= /^a{3,}$/;
+        console.log(rg5.test(''));
+        console.log(rg5.test('a'));
+        console.log(rg5.test('aaa'));
+        console.log(rg5.test('aaaaa'));
+        
+        
+        // {3.16} 大等于3 且小等于16
+        var rg6= /^a{3,7}$/;
+        console.log(rg6.test(''));
+        console.log(rg6.test('a'));
+        console.log(rg6.test('aaa'));
+        console.log(rg6.test('aaaaa'));
+        console.log(rg6.test('aaaaaaaaa'));
+        
+        
+
+
+    </script>
+</body>
+</html>

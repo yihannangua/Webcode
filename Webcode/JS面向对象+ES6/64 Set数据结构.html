@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set数据结构</title>
+</head>
+<body>
+    <script>
+        const s1 = new Set();
+        console.log(s1.size);//.size 数据结构中包含了多少值
+
+        const s2 = new Set([1,3,1,4]);//Set数据结构自动去重
+        console.log(s2.size);
+        const ary = [...s2];
+        console.log(ary);
+        
+        const s4 = new Set();
+        s4.add('a').add('b');//向Set中添加值
+        console.log(s4);
+        s4.delete('a');//从Set中删除值
+        console.log(s4);
+        console.log(s4.has('b'));;//判断Set中是否存在值
+        s4.clear();
+        console.log(s4);
+
+        //遍历Set数据结构
+        console.log('____下面是遍历Set数据____');
+        const s5 = new Set([1,3,5,7,9,12]);
+        s5.forEach(value => {
+            console.log(value);
+        })
+        
+        
+    </script>
+</body>
+</html>

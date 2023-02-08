@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剩余参数</title>
+</head>
+<body>
+    <script>
+        //剩余参数语法可以接受所有剩余的参数，表示为一个数组
+        const sum = (...args) => {//...代表接受所有的参数
+            let total = 0;
+            args.forEach(item => total += item);
+            return total;
+        }
+        console.log(sum(10,20));
+        console.log(sum(10,20,30));
+
+        //剩余参数可以配合解构来提取剩余值
+        let ary = ['a','b','c'];
+        let [x,...y] = ary;
+        console.log(x);
+        console.log(y);
+        
+
+    </script>
+</body>
+</html>

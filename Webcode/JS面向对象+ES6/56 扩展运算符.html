@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算法</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+
+
+    <script>
+        let ary = [1,2,3];
+        console.log(...ary);//1 2 3 ,被当做log的参数分隔符
+
+        //扩展运算符可用于合并数组
+        //方法1
+        let ary1 = [1,3,4];
+        let ary2 = [4,3,2];
+        let ary3 = [...ary1,...ary2];
+        console.log(ary3);
+
+        //方法2
+        let ary4 = [1,3,4];
+        let ary5 = [4,3,2];
+        ary4.push(...ary5);//向ary1 中追加ary2
+        console.log(ary4);
+
+        //利用扩展运算符转换为真数组
+        let oDivs =document.querySelectorAll('div');
+        console.log(oDivs);
+        let divs = [...oDivs];
+        console.log(divs);
+    </script>
+</body>
+</html>

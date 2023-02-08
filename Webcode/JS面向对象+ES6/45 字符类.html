@@ -1,0 +1,50 @@
+45 字符类.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var rg1 = /[abc]/;//只要包含a或b或c
+        console.log(rg1.test('andy'));
+        console.log(rg1.test('baby'));
+        console.log(rg1.test('red'));
+
+        var rg2 = /^[abc]$/;//三选一 a b c三个字母的其中一个
+        console.log(rg2.test('aa'));
+        console.log(rg2.test('a'));
+        console.log(rg2.test('b'));
+        console.log(rg2.test('c'));
+        console.log(rg2.test('abc'));
+
+        var rg3 = /^[a-z]$///26个字母，任何一个字母
+        console.log(rg3.test('d'));
+        console.log(rg3.test('e'));
+        console.log(rg3.test('F'));
+        console.log(rg3.test('andy'));
+
+        //字符组合
+        var rg4 = /^[a-zA-z0-9-_]$/;//26个英文字符大小写及数字都可以
+        console.log(rg4.test('d'));
+        console.log(rg4.test('e'));
+        console.log(rg4.test('F'));
+        console.log(rg4.test('2'));
+        console.log(rg4.test('-'));
+        console.log(rg4.test('!'));
+        
+        //取反
+        var rg5 = /^[^a-zA-z0-9-_]$/;//^在[]内部，表示取反 千万和边界符区分开
+        console.log(rg5.test('d'));
+        console.log(rg5.test('e'));
+        console.log(rg5.test('F'));
+        console.log(rg5.test('2'));
+        console.log(rg5.test('-'));
+        console.log(rg5.test('!'));
+        
+    </script>
+</body>
+</html>

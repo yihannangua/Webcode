@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array.from方法</title>
+</head>
+<body>
+    <script>
+        //Array.from方案可将类数组或可遍历对象转换为真数组
+        var arrLike1 = {
+            "0": "张三",
+            "1": "李四",
+            "2": "王五",
+            "length": 3
+        }
+
+        var ary1 = Array.from(arrLike1);
+        console.log(ary1);     
+        
+        //Array.from还可以接受第二个参数 类似于数组的map方法 用来对每个元素进行处理，将处理后的值放入返回的数组
+        let arrLike2 = {
+            "0": "1",
+            "1": "2",
+            "length": 2
+        }
+
+        var ary2 = Array.from(arrLike2,item => item * 2);
+        console.log(ary2);
+    </script>
+</body>
+</html>

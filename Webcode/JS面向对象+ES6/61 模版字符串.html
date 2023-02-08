@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模版字符串</title>
+</head>
+<body>
+    <script>
+        let name1 = `这是一个模版字符串`;
+        console.log(name1);
+
+        //模版字符串可以解析变量
+        let name2 = '张三';
+        let sayHello = `我们的名字叫${name2}`;
+        console.log(sayHello);
+
+        //模版字符串中可以换行
+        let result1 = {
+            name: '张三',
+            age: 18,
+            sex: '男'
+        }
+
+        let html1 = `<div>
+        <span>${result1.name}</span>
+        <span>${result1.age}</span>
+        <span>${result1.sex}</span>
+        </div>
+        `;
+        console.log(html1);
+
+        //模版字符串中可以调用函数
+        const f1 = () => {
+            return '我们是函数';
+        }
+
+        let html2 = `我想说的是:"${f1()}"`;
+        console.log(html2);
+
+        </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //const 用于声明常量 值的内存地址不可更改即值不可改变的量
+        //1 const 具有块级作用域
+        // if (true) {
+        //     const a = 10;
+        //     if (true) {
+        //         const a = 20;
+        //         console.log(a);//20
+        //     }
+        //     console.log(a);//10
+        // }
+        // console.log(a);//a is not defined
+
+        //2 const 声明常量必须赋值
+        // const PI;//Missing initializer in const declaration
+
+        //3 常量赋值后 值不能修改 指的是值内存地址不可更改
+        // const PI = 3.14;
+        // PI =100;//Assignment to constant variable.
+
+        const ary = [100,200];//复杂数据类型内部的值可以更改
+        console.log(ary);
+        ary[0] = 'a';
+        ary[1] = 'b';
+        console.log(ary);
+        ary = ['c','d'];//但不能直接更改复杂数据类型值本身不可修改 即常量值的内存地址不可更改
+    </script>
+</body>
+</html>

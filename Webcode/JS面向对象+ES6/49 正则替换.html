@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="+" id="msg" cols="30" rows="10"></textarea>
+    <button>提交</button>
+    <div></div>
+
+    <script>
+        //替换 replace
+        var str1 = 'andy and baby';
+        var str2 = str1.replace(/baby/,'red');
+        console.log(str2);
+        var text = document.querySelector('#msg');
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.addEventListener('click',function() {
+            div.innerHTML = text.value.replace(/ sex|性/g,'*');       
+        });
+    </script >
+</body>
+</html>

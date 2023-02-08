@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //验证座机号码 两种格式 010-12345678 或者 0530-1234567
+        var rg1 = /^\d{3}-\d{8}|\d{4}-\d{7}$/;//正则里面或的符号 |
+        
+        //验证手机号 1 2/3/5/7/9 0-9的9位
+        var phone = /^1[23579]\d{9}$/;
+        console.log(phone.test(1220));
+        console.log(phone.test(13602211123));
+        console.log(phone.test(14602211123));
+        
+    </script>
+</body>
+</html>
